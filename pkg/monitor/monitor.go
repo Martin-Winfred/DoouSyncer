@@ -7,8 +7,6 @@ import (
 	"runtime"
 )
 
-
-
 import (
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/disk"
@@ -18,12 +16,12 @@ import (
 	"net"
 	"time"
 )
-//The Function marked with checked means it is functioning
 
+//The Function marked with checked means it is functioning
 
 //Get Host Info
 //Get bosic Info Of host
-func GetHostInfo() (sysInfo, archInfo, name string, numCpu int, bootTime uint64,err error) {
+func GetHostInfo() (sysInfo, archInfo, name string, numCpu int, bootTime uint64, err error) {
 	sysInfo = runtime.GOOS
 	archInfo = runtime.GOARCH
 	numCpu = runtime.NumCPU()
@@ -32,7 +30,7 @@ func GetHostInfo() (sysInfo, archInfo, name string, numCpu int, bootTime uint64,
 		err = errors.New("can't detect HostInfo")
 		return
 	}
-	bootTime,err = host.BootTime()
+	bootTime, err = host.BootTime()
 	if err != nil {
 		err = errors.New("can't get boot time")
 		return
@@ -80,7 +78,7 @@ func GetMemPercent() (memUsage float64, err error) {
 
 /*
 Checked
- */
+*/
 func GetDiskPercent() (diskInfo float64, err error) {
 	parts, _ := disk.Partitions(false)
 	if err != nil {
@@ -96,7 +94,6 @@ func GetDiskPercent() (diskInfo float64, err error) {
 	return
 }
 
-
 //This function only shows all the bandwith used after boot
 //Checked
 func GetNetInfo(InterfaceName string) (name string, bytesRecv, bytesSend uint64, err error) {
@@ -107,7 +104,7 @@ func GetNetInfo(InterfaceName string) (name string, bytesRecv, bytesSend uint64,
 		return
 	} else {
 		for i := 0; netCard[i].Name != InterfaceName; i++ {
-			coun = i+1
+			coun = i + 1
 		}
 	}
 	name = netCard[coun].Name
