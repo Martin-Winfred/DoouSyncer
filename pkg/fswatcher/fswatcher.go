@@ -1,4 +1,4 @@
-package FSNotify
+package FSWatcher
 
 import (
 	"fmt"

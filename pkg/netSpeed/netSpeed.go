@@ -1,7 +1,7 @@
 package netSpeed
 
 import (
-	"DoouSyncer/pkg/monitor"
+	"github.com/Martin-Winfred/DoouSyncer/pkg/monitor"
 	"time"
 )
 
