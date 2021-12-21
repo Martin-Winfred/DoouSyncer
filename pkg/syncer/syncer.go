@@ -33,4 +33,3 @@ func syncer() {
 	fmt.Println("well done")
 	fmt.Println(task.Log())
 }
-}
